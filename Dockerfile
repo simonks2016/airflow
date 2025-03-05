@@ -1,4 +1,4 @@
-FROM apache/airflow:2.10.5
+FROM docker.m.daocloud.io/apache/airflow:2.10.5
 
 # 切换到 root 用户
 USER root
