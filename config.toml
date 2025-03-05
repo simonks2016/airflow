@@ -1,0 +1,43 @@
+# Prefect Server Configuration
+
+
+[server]
+logging_level = "INFO"  # 设置日志级别（DEBUG, INFO, WARNING, ERROR, CRITICAL）
+analytics_enabled = true  # 是否启用分析数据收集
+metrics_enabled = false  # 是否启用Prometheus度量
+log_retryable_errors = false  # 是否记录可重试的错误
+register_blocks_on_start = true  # 是否在应用启动时注册块类型
+memoize_block_auto_registration = true  # 是否启用memo块的自动注册
+memo_store_path = "/path/to/memo/store"  # memo存储路径
+deployment_schedule_max_scheduled_runs = 50  # 部署最大调度运行次数
+
+[server.database]
+connection_url = "postgresql+asyncpg://prefect:prefect@db:5432/prefect"
+user = "prefect"
+password = "prefect"
+name = "prefect"
+port = "5432"
+host = "db"
+migrate_on_start = true
+
+[server.tasks]
+max_scheduled_queue_size = 1000  # 最大调度队列大小
+max_retry_queue_size = 100  # 最大重试队列大小
+
+[server.tasks.scheduling]
+pending_task_timeout = "PT0S"  # PENDING任务超时设置
+
+[server.ui]
+enabled = true  # 是否启用Prefect UI
+api_url = "http://localhost:4200"  # UI连接API的URL
+serve_base = "/"  # UI的基本路径
+static_directory = "/path/to/static"  # UI静态文件路径
+
+[server.worker]
+heartbeat_seconds = 30  # 工作节点心跳时间间隔
+query_seconds = 10  # 查询工作调度的时间间隔
+prefetch_seconds = 10  # 工作节点查询的时间范围
+
+[server.worker.webserver]
+host = "0.0.0.0"  # 工作节点Web服务器绑定的主机地址
+port = 8080
