@@ -16,8 +16,8 @@ RUN java -version
 USER airflow
 
 # 安装 Apache Airflow 及 Python 依赖
-RUN pip install apache-airflow==2.10.5 -i https://pypi.tuna.tsinghua.edu.cn/simple
-RUN pip install apache-airflow-providers-apache-spark==5.0.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
+RUN pip install apache-airflow==2.10.5
+RUN pip install apache-airflow-providers-apache-spark==5.0.0
 
 
 
