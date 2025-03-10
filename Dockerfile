@@ -16,9 +16,8 @@ RUN java -version
 USER airflow
 
 # 安装 Apache Airflow 及 Python 依赖
-RUN pip install apache-airflow==2.10.5
 RUN pip install apache-airflow-providers-apache-spark==5.0.0
-RUN pip install requests beautifulsoup4 uuid
+RUN pip install requests beautifulsoup4
 
 
 # 复制alibaba emr 组件到tmp目录下
