@@ -18,6 +18,13 @@ USER airflow
 # 安装 Apache Airflow 及 Python 依赖
 RUN pip install apache-airflow==2.10.5
 RUN pip install apache-airflow-providers-apache-spark==5.0.0
+RUN pip install requests beautifulsoup4 uuid
+
+
+# 复制alibaba emr 组件到tmp目录下
+COPY airflow_alibaba_provider-0.0.3-py3-none-any.whl /tmp/
+# 安装组件
+RUN pip install /tmp/airflow_alibaba_provider-0.0.3-py3-none-any.whl
 
 
 
